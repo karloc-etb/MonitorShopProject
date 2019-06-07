@@ -29,7 +29,7 @@ namespace ASP.NETProject
                 catch (Exception ex)
                 {
 
-                    throw;
+                    
                 }
             }
             host.Run();
