@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ASP.NETProject.Migrations
 {
-    public partial class ChangedMigration : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,11 +14,11 @@ namespace ASP.NETProject.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(nullable: true),
-                    Price = table.Column<double>(nullable: false),
-                    DisplaySize = table.Column<int>(nullable: false),
+                    Price = table.Column<double>(nullable: true),
+                    DisplaySize = table.Column<int>(nullable: true),
                     Color = table.Column<string>(nullable: true),
                     SoldBy = table.Column<string>(nullable: true),
-                    ModelYear = table.Column<int>(nullable: false),
+                    ModelYear = table.Column<int>(nullable: true),
                     ImageUrl = table.Column<string>(nullable: true),
                     ImageThumbnailUrl = table.Column<string>(nullable: true)
                 },

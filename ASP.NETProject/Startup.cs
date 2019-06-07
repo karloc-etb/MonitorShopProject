@@ -32,8 +32,8 @@ namespace ASP.NETProject
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddTransient<IMonitorRepository, MonitorService>();
-            //services.AddTransient<IMonitorRepository, DbMonitorService>();
+            //services.AddTransient<IMonitorRepository, MonitorService>();
+            services.AddTransient<IMonitorRepository, DbMonitorService>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddDbContext<AppDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
