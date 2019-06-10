@@ -19,5 +19,7 @@ namespace ASP.NETProject.Models
         public DbSet<Monitor> Monitors { get; set; }
 
         public DbSet<Feedback> Feedbacks { get; set; }
+
+        public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
     }
 }

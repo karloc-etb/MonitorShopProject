@@ -16,5 +16,7 @@ namespace ASP.NETProject.Models
         public int ModelYear { get; set; }
         public string ImageUrl { get; set; }
         public string ImageThumbnailUrl { get; set; }
+
+        
     }
 }

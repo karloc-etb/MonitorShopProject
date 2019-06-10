@@ -8,11 +8,16 @@ namespace ASP.NETProject.Models
     public class DbMonitorService : IMonitorRepository
     {
         private readonly AppDbContext _appDbContext;
+        public IEnumerable<Monitor> Monitors { get; set; }
+
 
         public DbMonitorService(AppDbContext appDbContext)
         {
             _appDbContext = appDbContext;
+            Monitors = _appDbContext.Monitors.ToList();
         }
+
+        
 
         public IEnumerable<Monitor> GetAllMonitors()
         {

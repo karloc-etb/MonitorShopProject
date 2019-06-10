@@ -9,6 +9,9 @@ namespace ASP.NETProject.Models
     {
         private List<Monitor> _monitors;
 
+        public List<Monitor> Monitors { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        IEnumerable<Monitor> IMonitorRepository.Monitors { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         public MonitorService()
         {
             if (_monitors == null)

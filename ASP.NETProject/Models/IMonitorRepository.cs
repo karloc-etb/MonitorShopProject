@@ -7,6 +7,8 @@ namespace ASP.NETProject.Models
 {
     public interface IMonitorRepository
     {
+        IEnumerable<Monitor> Monitors { get; set; }
+
         IEnumerable<Monitor> GetAllMonitors();
 
         Monitor GetMonitorById(int id);

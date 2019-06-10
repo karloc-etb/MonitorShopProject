@@ -36,7 +36,13 @@ namespace ASP.NETProject
             //services.AddTransient<IMonitorRepository, MonitorService>();
             services.AddTransient<IMonitorRepository, DbMonitorService>();
             services.AddTransient<IFeedbackRepository, FeedbackService>();
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped(sp => ShoppingCart.GetCart(sp));
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMemoryCache();
+            services.AddSession();
 
             services.AddDbContext<AppDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
@@ -66,6 +72,8 @@ namespace ASP.NETProject
             app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseAuthentication();
+            
+            app.UseSession();
 
             app.UseMvc(routes =>
             {
