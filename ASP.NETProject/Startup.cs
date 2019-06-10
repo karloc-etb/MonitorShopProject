@@ -34,6 +34,7 @@ namespace ASP.NETProject
 
             //services.AddTransient<IMonitorRepository, MonitorService>();
             services.AddTransient<IMonitorRepository, DbMonitorService>();
+            services.AddTransient<IFeedbackRepository, FeedbackService>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddDbContext<AppDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
