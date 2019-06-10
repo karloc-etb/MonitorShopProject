@@ -23,6 +23,19 @@ namespace ASP.NETProject.Controllers
             return View(monitors);
         }
 
+        public IActionResult ViewDetails(int id)
+        {
+            var monitor = _monitorRepository.GetMonitorById(id);
+
+            if (monitor == null)
+            {
+                return NotFound();
+            }
+            return View(monitor);
+        }
+
+        
+
         public IActionResult Privacy()
         {
             return View();

@@ -20,14 +20,17 @@
                 </div>
 
                 <h5>
-                    @Html.DisplayFor(modelItem => item.Name)
+                    <a asp-controller="Home" asp-action="ViewDetails" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Name)</a>
+                    
                 </h5>
 
                 <div class="caption">
                     <h3 class="pull-right">
-                        @Html.DisplayFor(modelItem => item.Price)
+                         @Html.DisplayFor(modelItem => item.Price)
                     </h3>
                 </div>
+
+
 
             </div>
             }
