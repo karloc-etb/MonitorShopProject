@@ -21,7 +21,7 @@ namespace ASP.NETProject.Models
 
         public IEnumerable<Monitor> GetAllMonitors()
         {
-            return _appDbContext.Monitors;
+            return Monitors;
         }
 
         public Monitor GetMonitorById(int id)

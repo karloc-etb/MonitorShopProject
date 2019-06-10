@@ -13,7 +13,7 @@ namespace ASP.NETProject.Models
         public string ShoppingCartId { get; set; }
         public List<ShoppingCartItem> ShoppingCartItems { get; set; }
 
-        private AppDbContext _appDbContext;
+        private readonly AppDbContext _appDbContext;
 
         public ShoppingCart(AppDbContext appDbContext)
         {

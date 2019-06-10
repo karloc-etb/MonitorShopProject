@@ -13,9 +13,10 @@ namespace ASP.NETProject.Controllers
         private readonly IMonitorRepository _monitorRepository;
         private readonly ShoppingCart _shoppingCart;
 
-        public ShoppingCartController()
+        public ShoppingCartController(IMonitorRepository monitorRepository, ShoppingCart shoppingCart)
         {
-
+            _monitorRepository = monitorRepository;
+            _shoppingCart = shoppingCart;
         }
 
         public ViewResult Index()
@@ -34,9 +35,9 @@ namespace ASP.NETProject.Controllers
 
         public RedirectToActionResult AddToShoppingCart(int monitorId)
         {
-            _monitorRepository.Monitors = _monitorRepository.GetAllMonitors();
+            //_monitorRepository.Monitors = _monitorRepository.GetAllMonitors();
 
-            var selectedMonitor = _monitorRepository.Monitors.FirstOrDefault(p => p.Id == monitorId);
+            var selectedMonitor = _monitorRepository.GetMonitorById(monitorId);
 
             if (selectedMonitor != null)
             {
