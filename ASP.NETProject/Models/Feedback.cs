@@ -18,6 +18,8 @@ namespace ASP.NETProject.Models
         [StringLength(100, ErrorMessage = "Your name is required")]
         public string Name { get; set; }
 
+        public int Age { get; set; }
+
         [Required]
         [StringLength(100, ErrorMessage = "Your email is required")]
         [DataType(DataType.EmailAddress)]
