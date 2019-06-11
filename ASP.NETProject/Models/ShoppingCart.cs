@@ -94,6 +94,11 @@ namespace ASP.NETProject.Models
                         .ToList());
         }
 
+        public IEnumerable<ShoppingCartItem> GetShoppingCartItemsEnum()
+        {
+            return GetShoppingCartItems();
+        }
+
         public void ClearCart()
         {
             var cartItems = _appDbContext

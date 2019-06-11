@@ -59,5 +59,23 @@ namespace ASP.NETProject.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult Checkout()
+        {
+            //var monitors = _shoppingCart.GetShoppingCartItems();
+            //_shoppingCart.ShoppingCartItems = monitors;
+
+            //var sCVM = new ShoppingCartViewModel
+            //{
+            //    ShoppingCart = _shoppingCart,
+            //    ShoppingCartTotal = _shoppingCart.GetShoppingCartTotal()
+            //};
+
+            IEnumerable<ShoppingCartItem> monitorsEnum = _shoppingCart.GetShoppingCartItemsEnum();
+
+            return View(monitorsEnum);
+
+            
+        }
+
     }
 }
