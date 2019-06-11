@@ -12,16 +12,12 @@
             @foreach (var item in Model)
             {
             <div class="col-sm-4 col-lg-4 col-md-4">
-
-
-
                 <div class="thumbnail">
                     <img alt="@item.Name" src="@item.ImageThumbnailUrl" class="img-responsive" style="width:100%;" />
                 </div>
 
                 <h5>
                     <a asp-controller="Home" asp-action="ViewDetails" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Name)</a>
-                    
                 </h5>
 
                 <div class="caption">
@@ -29,12 +25,8 @@
                          @Html.DisplayFor(modelItem => item.Price)
                     </h3>
                 </div>
-
-
-
             </div>
             }
-
         </p>
     </div>
 </div>
