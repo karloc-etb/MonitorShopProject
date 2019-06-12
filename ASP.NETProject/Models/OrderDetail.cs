@@ -14,5 +14,6 @@ namespace ASP.NETProject.Models
         public decimal Price { get; set; }
         public virtual Monitor Monitor { get; set; }
         public virtual Order Order { get; set; }
+        public Views.ShoppingCartViewModel ShoppingCartViewModel { get; set; }
     }
 }

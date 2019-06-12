@@ -61,6 +61,13 @@ namespace ASP.NETProject.Controllers
             return RedirectToAction("Index");
         }
 
+        public RedirectToActionResult ClearShoppingCart()
+        {
+            _shoppingCart.ClearCart();
+
+            return RedirectToAction("Index");
+        }
+
         public IActionResult Checkout()
         {
             //var monitors = _shoppingCart.GetShoppingCartItems();

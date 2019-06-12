@@ -4,14 +4,16 @@ using ASP.NETProject.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ASP.NETProject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190612075234_Orders")]
+    partial class Orders
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -118,27 +120,13 @@ namespace ASP.NETProject.Migrations
 
                     b.Property<decimal>("Price");
 
-                    b.Property<int?>("ShoppingCartViewModelId");
-
                     b.HasKey("OrderDetailId");
 
                     b.HasIndex("MonitorId");
 
                     b.HasIndex("OrderId");
 
-                    b.HasIndex("ShoppingCartViewModelId");
-
                     b.ToTable("OrderDetails");
-                });
-
-            modelBuilder.Entity("ASP.NETProject.Models.ShoppingCart", b =>
-                {
-                    b.Property<string>("ShoppingCartId")
-                        .ValueGeneratedOnAdd();
-
-                    b.HasKey("ShoppingCartId");
-
-                    b.ToTable("ShoppingCart");
                 });
 
             modelBuilder.Entity("ASP.NETProject.Models.ShoppingCartItem", b =>
@@ -157,26 +145,7 @@ namespace ASP.NETProject.Migrations
 
                     b.HasIndex("MonitorId");
 
-                    b.HasIndex("ShoppingCartId");
-
                     b.ToTable("ShoppingCartItems");
-                });
-
-            modelBuilder.Entity("ASP.NETProject.Views.ShoppingCartViewModel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ShoppingCartId");
-
-                    b.Property<double>("ShoppingCartTotal");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ShoppingCartId");
-
-                    b.ToTable("ShoppingCartViewModel");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -355,10 +324,6 @@ namespace ASP.NETProject.Migrations
                         .WithMany("OrderLInes")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("ASP.NETProject.Views.ShoppingCartViewModel", "ShoppingCartViewModel")
-                        .WithMany()
-                        .HasForeignKey("ShoppingCartViewModelId");
                 });
 
             modelBuilder.Entity("ASP.NETProject.Models.ShoppingCartItem", b =>
@@ -366,17 +331,6 @@ namespace ASP.NETProject.Migrations
                     b.HasOne("ASP.NETProject.Models.Monitor", "Monitor")
                         .WithMany()
                         .HasForeignKey("MonitorId");
-
-                    b.HasOne("ASP.NETProject.Models.ShoppingCart")
-                        .WithMany("ShoppingCartItems")
-                        .HasForeignKey("ShoppingCartId");
-                });
-
-            modelBuilder.Entity("ASP.NETProject.Views.ShoppingCartViewModel", b =>
-                {
-                    b.HasOne("ASP.NETProject.Models.ShoppingCart", "ShoppingCart")
-                        .WithMany()
-                        .HasForeignKey("ShoppingCartId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
