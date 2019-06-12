@@ -1,5 +1,6 @@
 ﻿using ASP.NETProject.Models;
 using ASP.NETProject.Views;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace ASP.NETProject.Controllers
 {
+    [Authorize]
     public class ShoppingCartController : Controller
     {
         private readonly IMonitorRepository _monitorRepository;
