@@ -1,11 +1,8 @@
 ﻿using ASP.NETProject.Models;
-using ASP.NETProject.Views;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace ASP.NETProject.Controllers
 {
@@ -51,7 +48,7 @@ namespace ASP.NETProject.Controllers
 
         public RedirectToActionResult RemoveFromShoppingCart(int monitorId)
         {
-            var selectedMonitor = _monitorRepository.Monitors.FirstOrDefault(p => p.Id == monitorId);
+            var selectedMonitor = _monitorRepository.GetMonitorById(monitorId);
 
             if (selectedMonitor != null)
             {

@@ -1,4 +1,4 @@
-﻿@model ASP.NETProject.Views.ShoppingCartViewModel
+﻿@model ShoppingCartViewModel
 
 <div class="row checkoutForm">
     <h2>Your shopping cart:</h2>
@@ -16,15 +16,17 @@
         <tbody>
             @foreach (var line in Model.ShoppingCart.ShoppingCartItems)
             {
-                <tr>
-                    <td class="text-center">@line.Amount</td>
-                    <td class="text-left">@line.Monitor.Name</td>
-                    <td class="text-right">@line.Monitor.Price.ToString("c")</td>
-                    <td class="text-right">
-                        @((line.Amount * line.Monitor.Price).ToString("c"))
-                    </td>
-                    <td class="text-center"><a class="glyphicon glyphicon-remove text-danger remove" asp-controller="ShoppingCart" asp-action="RemoveFromShoppingCart" asp-route-id="@line.Monitor.Id"></a></td>
-                </tr>
+            <tr>
+                <td class="text-center">@line.Amount</td>
+                <td class="text-left">@line.Monitor.Name</td>
+                <td class="text-right">@line.Monitor.Price.ToString("c")</td>
+                <td class="text-right">
+                    @((line.Amount * line.Monitor.Price).ToString("c"))
+                </td>
+                <td class="text-center"><a class="btn btn-primary" asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-monitorId="@line.Monitor.Id">Add</a></td>
+                <td class="text-center"><a class="btn btn-danger" asp-controller="ShoppingCart" asp-action="RemoveFromShoppingCart" asp-route-monitorId="@line.Monitor.Id">Remove</a></td>
+                
+            </tr>
             }
         </tbody>
         <tfoot>
@@ -38,8 +40,9 @@
     </table>
 
     <div>
-        <a class="btn btn-success" asp-controller="Order" asp-action="Checkout">Checkout</a>
+        <a class="btn btn-primary" asp-controller="Order" asp-action="Checkout">Checkout</a>
         <a class="btn btn-danger" asp-controller="Home" asp-action="Index">Back to List</a>
+        <a class="btn btn-success" asp-controller="ShoppingCart" asp-action="ClearShoppingCart">Clear</a>
     </div>
 
     @*<div class="text-right">

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ASP.NETProject.Models;
-using ASP.NETProject.Views;
+﻿using ASP.NETProject.Models;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -27,12 +22,41 @@ namespace ASP.NETProject.Controllers
             return View();
         }
 
+        public RedirectToActionResult PreCheckout()
+        {
+            var items = _shoppingCart.GetShoppingCartItems();
+            _shoppingCart.ShoppingCartItems = items;
+
+            //foreach (var item in items)
+            //{
+            //    var orderDetail = new OrderDetail()
+            //    {
+            //        Amount = item.Amount,
+            //        MonitorId = item.Monitor.Id,
+            //        OrderId = order.OrderId,
+            //        Price = (decimal)item.Monitor.Price
+            //    };
+
+            //    _appDbContext.OrderDetails.Add(orderDetail);
+            //}
+            //_appDbContext.SaveChanges();
+
+            var sCVM = new ShoppingCartViewModel
+            {
+                ShoppingCart = _shoppingCart,
+                ShoppingCartTotal = _shoppingCart.GetShoppingCartTotal()
+            };
+
+            
+
+            return RedirectToAction("CheckoutComplete");
+        }
+
         public IActionResult CheckoutComplete()
         {
-
-
-
             _shoppingCart.ClearCart();
+
+            
 
             return View();
         }

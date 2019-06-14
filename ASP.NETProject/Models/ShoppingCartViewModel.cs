@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ASP.NETProject.Views
+namespace ASP.NETProject.Models
 {
     public class ShoppingCartViewModel
     {

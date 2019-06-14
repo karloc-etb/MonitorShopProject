@@ -48,7 +48,6 @@ namespace ASP.NETProject.Models
                     Monitor = monitor,
                     Amount = 1
                 };
-
                 _appDbContext.ShoppingCartItems.Add(shoppingCartItem);
             }
             else
@@ -73,13 +72,12 @@ namespace ASP.NETProject.Models
                     shoppingCartItem.Amount--;
                     localAmount = shoppingCartItem.Amount;
                 }
-
-                
+                else
+                {
+                    _appDbContext.ShoppingCartItems.Remove(shoppingCartItem);
+                }
             }
-            else
-            {
-                _appDbContext.ShoppingCartItems.Remove(shoppingCartItem);
-            }
+            
             _appDbContext.SaveChanges();
 
             return localAmount;
