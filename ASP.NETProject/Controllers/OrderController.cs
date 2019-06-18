@@ -22,35 +22,23 @@ namespace ASP.NETProject.Controllers
             return View();
         }
 
-        public RedirectToActionResult PreCheckout()
-        {
-            var items = _shoppingCart.GetShoppingCartItems();
-            _shoppingCart.ShoppingCartItems = items;
-
-            //foreach (var item in items)
-            //{
-            //    var orderDetail = new OrderDetail()
-            //    {
-            //        Amount = item.Amount,
-            //        MonitorId = item.Monitor.Id,
-            //        OrderId = order.OrderId,
-            //        Price = (decimal)item.Monitor.Price
-            //    };
-
-            //    _appDbContext.OrderDetails.Add(orderDetail);
-            //}
-            //_appDbContext.SaveChanges();
-
-            var sCVM = new ShoppingCartViewModel
-            {
-                ShoppingCart = _shoppingCart,
-                ShoppingCartTotal = _shoppingCart.GetShoppingCartTotal()
-            };
+        //public RedirectToActionResult PreCheckout()
+        //{
+        //    var items = _shoppingCart.GetShoppingCartItems();
+        //    _shoppingCart.ShoppingCartItems = items;
 
             
 
-            return RedirectToAction("CheckoutComplete");
-        }
+        //    var sCVM = new ShoppingCartViewModel
+        //    {
+        //        ShoppingCart = _shoppingCart,
+        //        ShoppingCartTotal = _shoppingCart.GetShoppingCartTotal()
+        //    };
+
+            
+
+        //    return RedirectToAction("CheckoutComplete");
+        //}
 
         public IActionResult CheckoutComplete()
         {

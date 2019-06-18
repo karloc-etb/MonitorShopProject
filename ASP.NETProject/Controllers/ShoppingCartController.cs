@@ -46,6 +46,20 @@ namespace ASP.NETProject.Controllers
             return RedirectToAction("Index");
         }
 
+        public RedirectToActionResult AddToShoppingCartButton(int monitorId)
+        {
+            //_monitorRepository.Monitors = _monitorRepository.GetAllMonitors();
+
+            var selectedMonitor = _monitorRepository.GetMonitorById(monitorId);
+
+            if (selectedMonitor != null)
+            {
+                _shoppingCart.AddToCart(selectedMonitor, 1);
+            }
+
+            return RedirectToAction("Index", "Home");
+        }
+
         public RedirectToActionResult RemoveFromShoppingCart(int monitorId)
         {
             var selectedMonitor = _monitorRepository.GetMonitorById(monitorId);
@@ -67,20 +81,9 @@ namespace ASP.NETProject.Controllers
 
         public IActionResult Checkout()
         {
-            //var monitors = _shoppingCart.GetShoppingCartItems();
-            //_shoppingCart.ShoppingCartItems = monitors;
-
-            //var sCVM = new ShoppingCartViewModel
-            //{
-            //    ShoppingCart = _shoppingCart,
-            //    ShoppingCartTotal = _shoppingCart.GetShoppingCartTotal()
-            //};
-
             IEnumerable<ShoppingCartItem> monitorsEnum = _shoppingCart.GetShoppingCartItemsEnum();
 
             return View(monitorsEnum);
-
-            
         }
 
     }
