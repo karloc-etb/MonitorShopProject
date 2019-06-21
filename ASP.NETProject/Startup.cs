@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ASP.NETProject.Models;
+﻿using ASP.NETProject.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -33,7 +29,6 @@ namespace ASP.NETProject
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            //services.AddTransient<IMonitorRepository, MonitorService>();
             services.AddTransient<IMonitorRepository, DbMonitorService>();
             services.AddTransient<IFeedbackRepository, FeedbackService>();
 

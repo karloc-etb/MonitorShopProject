@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace ASP.NETProject.Models
+﻿namespace ASP.NETProject.Models
 {
     public class Monitor
     {
@@ -16,7 +11,5 @@ namespace ASP.NETProject.Models
         public int ModelYear { get; set; }
         public string ImageUrl { get; set; }
         public string ImageThumbnailUrl { get; set; }
-
-        
     }
 }

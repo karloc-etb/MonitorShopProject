@@ -1,0 +1,18 @@
+﻿.slide-container {
+    width: 800px;
+    height: 600px;
+}
+.slide-container.image-container {
+    width: 2400px;
+    height: 600px;
+    position: relative;
+    transition: left 2s;
+    -webkit-transition: left 2s;
+    -moz-transition: left 2s;
+    -o-transition: left 2s;
+}
+.slide-container.image-container.slider-image {
+    float: left;
+    margin: 0px;
+    padding: 0px;
+}
